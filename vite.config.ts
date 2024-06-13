@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "./lib/index.ts"),
-      name: "react-beautiful-timeline",
+      name: "koon-ui",
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
@@ -22,6 +22,7 @@ export default defineConfig({
         },
       },
     },
+
     sourcemap: true,
     emptyOutDir: true,
   },
