@@ -12,6 +12,7 @@ export default defineConfig({
       name: "koon-ui",
       fileName: (format) => `index.${format}.js`,
     },
+
     rollupOptions: {
       external: ["react", "react-dom", "tailwindcss"],
       output: {
@@ -26,7 +27,7 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [react(), dts({ rollupTypes: true })],
+  plugins: [react(), dts({ rollupTypes: false })],
   css: {
     postcss: {
       plugins: [tailwindcss],
