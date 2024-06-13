@@ -20,9 +20,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "rootDir": "./lib",
-    "outDir": "./dist"
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["lib"],
   "references": [{ "path": "./tsconfig.node.json" }]
