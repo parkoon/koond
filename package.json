@@ -32,11 +32,17 @@
     "build-storybook": "storybook build -o storybook"
   },
   "dependencies": {
+    "@radix-ui/react-alert-dialog": "^1.0.5",
+    "@radix-ui/react-aspect-ratio": "^1.0.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.394.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.3.0",
+    "vaul": "^0.9.1"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.5.0",
     "@storybook/addon-essentials": "^8.1.8",
     "@storybook/addon-interactions": "^8.1.8",
     "@storybook/addon-links": "^8.1.8",
@@ -59,6 +65,7 @@
     "postcss": "^8.4.38",
     "storybook": "^8.1.8",
     "tailwindcss": "^3.4.4",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vite-plugin-dts": "^3.9.1"

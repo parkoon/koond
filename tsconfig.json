@@ -20,8 +20,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "baseUrl": "."
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["lib"],
   "references": [{ "path": "./tsconfig.node.json" }]

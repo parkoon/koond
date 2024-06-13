@@ -1,11 +1,63 @@
-type ButtonProps = { children: React.ReactNode };
+import { type VariantProps, cva } from "class-variance-authority";
+import { Loader2 } from "lucide-react";
+import React from "react";
+import { cn } from "../utils/cn";
 
-const Button = ({ children }: ButtonProps) => {
-  return (
-    <button className="inline-flex border py-2 px-4 text-sm rounded-full">
-      {children}
-    </button>
-  );
-};
+const buttonVariants = cva(
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50 select-none",
+  {
+    variants: {
+      variant: {
+        primary: "bg-primary text-white shadow",
+        secondary: "bg-secondary text-secondary-foreground shadow-sm",
+        ghost: "",
+        outlined: "bg-white border",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3 text-xs",
+        lg: "h-12 rounded-md px-8",
+        icon: "h-9 w-9",
+      },
+      danger: {
+        true: "bg-danger border-danger-foreground text-white",
+      },
+      loading: {
+        true: "pointer-events-none opacity-50",
+      },
+      block: {
+        true: "w-full",
+      },
+    },
+    defaultVariants: {
+      variant: "primary",
+      size: "default",
+    },
+  }
+);
 
-export default Button;
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof buttonVariants>;
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    { className, variant, size, block, loading, danger, children, ...props },
+    ref
+  ) => {
+    return (
+      <button
+        className={cn(
+          buttonVariants({ variant, size, danger, className, block, loading })
+        )}
+        ref={ref}
+        {...props}
+      >
+        {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+        {children}
+      </button>
+    );
+  }
+);
+Button.displayName = "Button";
+
+export { Button, buttonVariants };
