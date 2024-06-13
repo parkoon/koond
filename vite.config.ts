@@ -27,7 +27,7 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true,
   },
-  plugins: [react(), dts({ rollupTypes: false })],
+  plugins: [react(), dts({ rollupTypes: true })],
   css: {
     postcss: {
       plugins: [tailwindcss],
