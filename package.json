@@ -1,5 +1,6 @@
 {
   "name": "koon-ui",
+  "description": "A collection of React components optimized for mobile web applications, built with Radix UI. Features include mobile-first design, high customization, and accessibility.",
   "private": false,
   "version": "0.2.2",
   "type": "module",
@@ -16,6 +17,11 @@
       "types": "./dist/index.d.ts"
     },
     "./dist/style.css": "./dist/style.css"
+  },
+  "author": "devparkoon@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parkoon/koon-ui.git"
   },
   "scripts": {
     "dev": "vite",
