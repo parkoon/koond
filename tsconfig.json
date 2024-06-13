@@ -13,12 +13,15 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "declaration": true,
+    "typeRoots": ["./dist/index.d.ts"],
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "rootDir": "./lib"
   },
   "include": ["lib"],
   "references": [{ "path": "./tsconfig.node.json" }]
