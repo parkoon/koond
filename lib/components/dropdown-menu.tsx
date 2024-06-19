@@ -53,7 +53,7 @@ const DropdownMenu = <T extends string>({
                   key={key}
                   value={key}
                   className={cn(
-                    'flex select-none items-center justify-between px-4 py-3 text-sm leading-none outline-none',
+                    'flex select-none items-center justify-between px-4 py-3 leading-none outline-none',
                     !isLast && 'border-b',
                   )}
                 >

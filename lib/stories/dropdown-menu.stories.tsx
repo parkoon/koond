@@ -12,20 +12,18 @@ export default meta
 
 export const _DropdownMenu = () => {
   return (
-    <div>
-      <DropdownMenu
-        trigger={
-          <button className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white outline-none">
-            <Menu />
-          </button>
-        }
-        items={[
-          { label: 'Latest', key: 'Latest' },
-          { label: 'Due date', key: 'Duedate' },
-          { label: 'Nearest', key: 'Nearest' },
-        ]}
-        defaultMenuKey="Latest"
-      />
-    </div>
+    <DropdownMenu
+      trigger={
+        <button className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white outline-none">
+          <Menu />
+        </button>
+      }
+      items={[
+        { label: 'Latest', key: 'Latest' },
+        { label: 'Due date', key: 'Duedate' },
+        { label: 'Nearest', key: 'Nearest' },
+      ]}
+      defaultMenuKey="Latest"
+    />
   )
 }

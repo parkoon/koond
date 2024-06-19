@@ -26,3 +26,9 @@
     --radius: 0.5rem;
   }
 }
+
+@layer base {
+  body {
+    @apply bg-background text-base text-foreground;
+  }
+}
