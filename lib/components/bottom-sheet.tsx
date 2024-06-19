@@ -29,7 +29,7 @@ const BottomSheet = ({
         >
           <Drawer.Handle className="bg-black/10 mt-3 mb-6" />
 
-          <div className="max-w-[44rem] w-full mx-auto">{children}</div>
+          <div className="max-w-lg w-full mx-auto">{children}</div>
         </Drawer.Content>
       </Drawer.Portal>
     </Drawer.Root>
