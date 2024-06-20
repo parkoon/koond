@@ -1,12 +1,14 @@
-import React from "react";
+import type { Preview } from '@storybook/react'
+import React from 'react'
 
-import type { Preview } from "@storybook/react";
-import { ScreenDrawerProvider } from "../lib/components/screen-drawer";
-import Screen from "../lib/components/screen";
-import "../lib/index.css";
-import "./style.css";
+import Screen from '../lib/components/screen'
+import { ScreenDrawerProvider } from '../lib/components/screen-drawer'
+import '../lib/index.css'
+import './style.css'
+
 const preview: Preview = {
   parameters: {
+    layout: 'fullscreen',
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -22,9 +24,9 @@ const preview: Preview = {
             <Story />
           </ScreenDrawerProvider>
         </Screen>
-      );
+      )
     },
   ],
-};
+}
 
-export default preview;
+export default preview
