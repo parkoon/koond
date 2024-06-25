@@ -51,6 +51,15 @@ export default {
         md: `calc(var(--radius) - 2px)`,
         sm: 'calc(var(--radius) - 4px)',
       },
+      keyframes: {
+        blink: {
+          '0%, 100%': { opacity: 0 },
+          '50%': { opacity: 100 },
+        },
+      },
+      animation: {
+        blink: 'blink 1s infinite',
+      },
     },
   },
   plugins: [require('tailwindcss-animate'), require('tailwind-scrollbar-hide')],
