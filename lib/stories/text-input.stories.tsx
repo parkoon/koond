@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react'
 
-import BirthInput from '../components/birth-input'
+import DateInput from '../components/date-input'
 import TextInput from '../components/text-input'
 
 const meta = {
@@ -16,7 +16,7 @@ export const _Input = () => {
     <div className="flex flex-col gap-2">
       <TextInput />
 
-      <BirthInput />
+      <DateInput />
     </div>
   )
 }
