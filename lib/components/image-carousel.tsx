@@ -1,0 +1,62 @@
+'use client'
+
+import { EmblaCarouselType } from 'embla-carousel'
+import useEmblaCarousel from 'embla-carousel-react'
+import React from 'react'
+import { useCallback, useEffect, useState } from 'react'
+
+import { cn } from '../utils/cn'
+
+type ImageCarouselProps = {
+  children: React.ReactNode
+  gap?: number
+  classNames?: {
+    slide?: string
+  }
+}
+
+const ImageCarousel = ({ children, classNames, gap = 8 }: ImageCarouselProps) => {
+  const [carouselRef, api] = useEmblaCarousel()
+
+  const [selectedIndex, setSelectedIndex] = useState(1)
+
+  const onSelect = useCallback((api: EmblaCarouselType) => {
+    if (!api) {
+      return
+    }
+
+    setSelectedIndex(api.selectedScrollSnap())
+  }, [])
+
+  useEffect(() => {
+    if (!api) return
+
+    onSelect(api)
+    api.on('select', onSelect)
+
+    return () => {
+      api.off('select', onSelect)
+    }
+  }, [api, onSelect])
+
+  return (
+    <section className="relative w-full">
+      <div className="overflow-hidden" ref={carouselRef}>
+        <div className="flex" style={{ gap }}>
+          {React.Children.map(children, (child, index) => (
+            <div className={cn('shrink-0 grow-0 basis-full', classNames?.slide)} key={index}>
+              {child}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="absolute bottom-2 right-2 rounded bg-[rgba(0,0,0,0.4)] px-2 py-1 text-sm">
+        <span className="text-white">{selectedIndex + 1}</span>
+        <span className="text-white opacity-50"> / {React.Children.count(children)}</span>
+      </div>
+    </section>
+  )
+}
+
+export default ImageCarousel
