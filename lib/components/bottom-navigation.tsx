@@ -4,22 +4,22 @@ import { cn } from '../utils/cn'
 
 export const BOTTOM_TAB_NAVIGATION_HEIGHT = 56
 
-type TabItem = {
+type NavItem = {
   label: string
   icon: React.ReactNode
 }
-type BottomTabNavigationProps = {
+type BottomNavigationProps = {
   classNames?: {
     root?: string
     item?: string
     label?: string
   }
-  items: TabItem[]
+  items: NavItem[]
 
   value?: number
   onChange?(value: number): void
 }
-const BottomTabNavigation = ({ classNames, value, onChange, items }: BottomTabNavigationProps) => {
+const BottomNavigation = ({ classNames, value, onChange, items }: BottomNavigationProps) => {
   const [activeTab, setActiveTab] = useState(0)
 
   const _activeTab = value ?? activeTab
@@ -56,4 +56,4 @@ const BottomTabNavigation = ({ classNames, value, onChange, items }: BottomTabNa
   )
 }
 
-export default BottomTabNavigation
+export default BottomNavigation

@@ -1,18 +1,18 @@
 import type { Meta } from '@storybook/react'
 import { DownloadCloud, SoupIcon, User } from 'lucide-react'
 
-import BottomTabNavigation from '../components/bottom-tab-navigation'
+import BottomNavigation from '../components/bottom-navigation'
 
 const meta = {
-  title: 'ui/BottomTabNavigation',
-  component: BottomTabNavigation,
-} satisfies Meta<typeof BottomTabNavigation>
+  title: 'ui/BottomNavigation',
+  component: BottomNavigation,
+} satisfies Meta<typeof BottomNavigation>
 
 export default meta
 
-export const _BottomTabNavigation = () => {
+export const _BottomNavigation = () => {
   return (
-    <BottomTabNavigation
+    <BottomNavigation
       items={[
         { icon: <User />, label: 'User' },
         { icon: <SoupIcon />, label: 'Soup' },
