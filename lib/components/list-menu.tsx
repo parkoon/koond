@@ -1,6 +1,8 @@
 import { ChevronRight } from 'lucide-react'
 import React from 'react'
 
+import { cn } from '../utils/cn'
+
 type MenuItem =
   | {
       type?: 'link'
@@ -15,43 +17,55 @@ type MenuItem =
     }
 type ListMenuProps = {
   hideLinkIcon?: boolean
+  title?: string
   items: MenuItem[]
+  classNames?: {
+    root?: string
+    title?: string
+  }
 }
 
-const ListMenu = ({ hideLinkIcon, items = [] }: ListMenuProps) => {
+const ListMenu = ({ title, items = [], classNames, hideLinkIcon }: ListMenuProps) => {
   return (
-    <ul>
-      {items.map((item, index) => {
-        if (item.type === 'separator') {
+    <div className={classNames?.root}>
+      {title && <h3 className={cn('mb-1 px-5 font-bold', classNames?.title)}>{title}</h3>}
+      <ul>
+        {items.map((item, index) => {
+          if (item.type === 'separator') {
+            return (
+              <div
+                key={index}
+                className="h-2"
+                style={{ backgroundColor: item.color || 'rgba(0,0,0,0.01)' }}
+              />
+            )
+          }
+
           return (
-            <div className="h-2" style={{ backgroundColor: item.color || 'rgba(0,0,0,0.01)' }} />
+            <li key={index}>
+              <button
+                onClick={item.onClick}
+                className="flex w-full items-center justify-between px-5 py-3"
+              >
+                <div className="flex items-center gap-2">
+                  {item.icon}
+                  {item.label}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {typeof item.extra === 'string' ? (
+                    <span className="text-placeholder text-sm">{item.extra}</span>
+                  ) : (
+                    item.extra
+                  )}
+                  {!hideLinkIcon && <ChevronRight className="h-5 w-5" />}
+                </div>
+              </button>
+            </li>
           )
-        }
-
-        return (
-          <li key={index}>
-            <button
-              onClick={item.onClick}
-              className="flex w-full items-center justify-between px-5 py-3"
-            >
-              <div className="flex items-center gap-2">
-                {item.icon}
-                {item.label}
-              </div>
-
-              <div className="flex items-center gap-2">
-                {typeof item.extra === 'string' ? (
-                  <span className="text-placeholder text-sm">{item.extra}</span>
-                ) : (
-                  item.extra
-                )}
-                {!hideLinkIcon && <ChevronRight className="h-5 w-5" />}
-              </div>
-            </button>
-          </li>
-        )
-      })}
-    </ul>
+        })}
+      </ul>
+    </div>
   )
 }
 
