@@ -1,6 +1,7 @@
 import { Castle } from 'lucide-react'
 
 import ListMenu from '../components/list-menu'
+import Paper from '../components/paper'
 import PromoBanner from '../components/promo-banner'
 import PromoBottomSheet from '../components/promo-bottom-sheet'
 import StepBar from '../components/step-bar'
@@ -38,6 +39,11 @@ export const _Test = () => {
 
       {/* <StepBar items={['신청전', 'b', '신고완료']} /> */}
       <StepBar items={['신청 전', '진행 중', '검토 중', '신고 완료']} currentStep={0} />
+
+      <Paper shadow className="mb-5 p-5">
+        Paper with shadow
+      </Paper>
+      <Paper className="p-5">Paper with border</Paper>
 
       <PromoBottomSheet id="promo_bottom_sheet">
         <img
