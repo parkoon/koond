@@ -2,6 +2,7 @@ import { Castle } from 'lucide-react'
 
 import ListMenu from '../components/list-menu'
 import PromoBanner from '../components/promo-banner'
+import PromoBottomSheet from '../components/promo-bottom-sheet'
 
 const meta = {
   title: 'ui/Test',
@@ -33,6 +34,13 @@ export const _Test = () => {
           },
         ]}
       />
+
+      <PromoBottomSheet id="promo_bottom_sheet">
+        <img
+          src="https://fastly.picsum.photos/id/866/800/600.jpg?hmac=ABydLIy9SfKp2C562ssO9GKtL4uss8xHHILcBin8K48"
+          draggable={false}
+        />
+      </PromoBottomSheet>
     </div>
   )
 }
