@@ -1,4 +1,7 @@
+import { CakeSlice, Calculator, Camera, Clock8, Database, Drum } from 'lucide-react'
+
 import { Avatar } from '../../components/avatar'
+import ListMenu from '../../components/list-menu'
 import { Screen, ScreenContent } from '../../components/screen'
 import SeparatedDescription from '../../components/separated-description'
 import Separator from '../../components/separator'
@@ -8,7 +11,7 @@ const meta = {
   tags: ['autodocs'],
 }
 
-export const AppSettingPage = () => {
+export const Default = () => {
   return (
     <Screen>
       <ScreenContent>
@@ -21,6 +24,45 @@ export const AppSettingPage = () => {
         </div>
 
         <Separator />
+
+        <ListMenu
+          title="My menu"
+          items={[
+            {
+              type: 'link',
+              label: 'Cake Slice',
+              icon: <CakeSlice className="h-5 w-5" />,
+            },
+            {
+              type: 'link',
+              label: 'Calculator',
+              icon: <Calculator className="h-5 w-5" />,
+            },
+            {
+              type: 'link',
+              label: 'Camera',
+              icon: <Camera className="h-5 w-5" />,
+            },
+            {
+              type: 'link',
+              label: 'Clock',
+              icon: <Clock8 className="h-5 w-5" />,
+            },
+            {
+              type: 'link',
+              label: 'Database',
+              icon: <Database className="h-5 w-5" />,
+            },
+            {
+              type: 'separator',
+            },
+            {
+              type: 'link',
+              label: 'Drum',
+              icon: <Drum className="h-5 w-5" />,
+            },
+          ]}
+        />
       </ScreenContent>
     </Screen>
   )

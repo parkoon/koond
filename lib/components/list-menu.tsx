@@ -28,7 +28,7 @@ type ListMenuProps = {
 const ListMenu = ({ title, items = [], classNames, hideLinkIcon }: ListMenuProps) => {
   return (
     <div className={classNames?.root}>
-      {title && <h3 className={cn('mb-1 px-5 font-bold', classNames?.title)}>{title}</h3>}
+      {title && <h3 className={cn('mb-1 font-bold', classNames?.title)}>{title}</h3>}
       <ul>
         {items.map((item, index) => {
           if (item.type === 'separator') {
@@ -45,7 +45,7 @@ const ListMenu = ({ title, items = [], classNames, hideLinkIcon }: ListMenuProps
             <li key={index}>
               <button
                 onClick={item.onClick}
-                className="flex w-full items-center justify-between px-5 py-3"
+                className="flex w-full items-center justify-between py-3"
               >
                 <div className="flex items-center gap-2">
                   {item.icon}
@@ -54,11 +54,11 @@ const ListMenu = ({ title, items = [], classNames, hideLinkIcon }: ListMenuProps
 
                 <div className="flex items-center gap-2">
                   {typeof item.extra === 'string' ? (
-                    <span className="text-placeholder text-sm">{item.extra}</span>
+                    <span className="text-sm text-placeholder">{item.extra}</span>
                   ) : (
                     item.extra
                   )}
-                  {!hideLinkIcon && <ChevronRight className="h-5 w-5" />}
+                  {!hideLinkIcon && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
                 </div>
               </button>
             </li>
