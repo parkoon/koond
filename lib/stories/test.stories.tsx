@@ -1,10 +1,12 @@
-import { Castle } from 'lucide-react'
+import { Castle, Settings2 } from 'lucide-react'
 
 import { Checkbox } from '../components/checkbox'
+import { IconButton } from '../components/icon-button'
 import ListMenu from '../components/list-menu'
 import Paper from '../components/paper'
 import PromoBanner from '../components/promo-banner'
 import PromoBottomSheet from '../components/promo-bottom-sheet'
+import ScrollableTabs from '../components/scrollable-tabs'
 import { Skeleton } from '../components/skeleton'
 import StepBar from '../components/step-bar'
 import { Switch } from '../components/swtich'
@@ -24,6 +26,23 @@ export const _Test = () => {
         strategy={{ storage: 'local', expiredAt: { unit: 'h', value: 1 } }}
         content={'local storage'}
       />
+
+      <ScrollableTabs
+        items={[
+          { key: 'job', label: 'Job', children: <div>Job list</div> },
+          { key: 'business', label: 'Business', children: <div>Business list</div> },
+          { key: 'job1', label: 'Job', children: <div>Job list</div> },
+          { key: 'business1', label: 'Business', children: <div>Business list</div> },
+          { key: 'job2', label: 'Job', children: <div>Job list</div> },
+          { key: 'business2', label: 'Business', children: <div>Business list</div> },
+          { key: 'job3', label: 'Job', children: <div>Job list</div> },
+          { key: 'business3', label: 'Business', children: <div>Business list</div> },
+          { key: 'job4', label: 'Job', children: <div>Job list</div> },
+          { key: 'business4', label: 'Business', children: <div>Business list</div> },
+        ]}
+        extra={<IconButton variant="ghost" icon={<Settings2 className="h-4 w-4" />} />}
+      />
+
       <ListMenu
         title="나의 거래"
         hideLinkIcon
