@@ -5,6 +5,7 @@ import ListMenu from '../components/list-menu'
 import Paper from '../components/paper'
 import PromoBanner from '../components/promo-banner'
 import PromoBottomSheet from '../components/promo-bottom-sheet'
+import { Skeleton } from '../components/skeleton'
 import StepBar from '../components/step-bar'
 import { Switch } from '../components/swtich'
 
@@ -40,6 +41,7 @@ export const _Test = () => {
       />
       <Switch />
 
+      <Skeleton className="h-5 w-full" />
       <br />
 
       <Checkbox />
