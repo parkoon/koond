@@ -1,5 +1,6 @@
 import { Castle } from 'lucide-react'
 
+import { Checkbox } from '../components/checkbox'
 import ListMenu from '../components/list-menu'
 import Paper from '../components/paper'
 import PromoBanner from '../components/promo-banner'
@@ -37,16 +38,17 @@ export const _Test = () => {
           },
         ]}
       />
-
       <Switch />
+
+      <br />
+
+      <Checkbox />
       {/* <StepBar items={['신청전', 'b', '신고완료']} /> */}
       <StepBar items={['신청 전', '진행 중', '검토 중', '신고 완료']} currentStep={0} />
-
       <Paper shadow className="mb-5 p-5">
         Paper with shadow
       </Paper>
       <Paper className="p-5">Paper with border</Paper>
-
       <PromoBottomSheet id="promo_bottom_sheet">
         <img
           src="https://fastly.picsum.photos/id/866/800/600.jpg?hmac=ABydLIy9SfKp2C562ssO9GKtL4uss8xHHILcBin8K48"
