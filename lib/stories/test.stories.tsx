@@ -5,6 +5,7 @@ import Paper from '../components/paper'
 import PromoBanner from '../components/promo-banner'
 import PromoBottomSheet from '../components/promo-bottom-sheet'
 import StepBar from '../components/step-bar'
+import { Switch } from '../components/swtich'
 
 const meta = {
   title: 'ui/Test',
@@ -37,6 +38,7 @@ export const _Test = () => {
         ]}
       />
 
+      <Switch />
       {/* <StepBar items={['신청전', 'b', '신고완료']} /> */}
       <StepBar items={['신청 전', '진행 중', '검토 중', '신고 완료']} currentStep={0} />
 
