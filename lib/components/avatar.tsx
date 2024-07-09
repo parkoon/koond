@@ -16,6 +16,7 @@ export type AvatarProps = {
   shape?: AvatarShape
   fallback?: string
   delayMs?: number
+  style?: React.CSSProperties
   classNames?: {
     root?: string
     image?: string
@@ -31,6 +32,7 @@ export const Avatar = ({
   fallback,
   alt,
   src,
+  style,
 }: AvatarProps) => {
   return (
     <AvatarPrimitive.Root
@@ -39,7 +41,7 @@ export const Avatar = ({
         shape === 'round' ? 'rounded-full' : 'rounded',
         classNames?.root,
       )}
-      style={{ width: size, height: size }}
+      style={{ width: size, height: size, ...style }}
     >
       <AvatarPrimitive.Image
         className={cn('aspect-square h-full w-full', classNames?.image)}

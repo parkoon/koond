@@ -29,7 +29,7 @@ const preview: Preview = {
       if (context.title.includes('ui')) {
         return (
           <Screen>
-            <Content className="px-5">
+            <Content>
               <Story />
             </Content>
           </Screen>

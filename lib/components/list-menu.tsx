@@ -2,6 +2,7 @@ import { ChevronRight } from 'lucide-react'
 import React from 'react'
 
 import { cn } from '../utils/cn'
+import Separator from './separator'
 
 type MenuItem =
   | {
@@ -13,7 +14,6 @@ type MenuItem =
     }
   | {
       type: 'separator'
-      color?: string
     }
 export type ListMenuProps = {
   hideLinkIcon?: boolean
@@ -33,13 +33,7 @@ export const ListMenu = ({ title, items = [], classNames, hideLinkIcon }: ListMe
       <ul>
         {items.map((item, index) => {
           if (item.type === 'separator') {
-            return (
-              <div
-                key={index}
-                className="h-2"
-                style={{ backgroundColor: item.color || 'rgba(0,0,0,0.01)' }}
-              />
-            )
+            return <Separator className="h-2 bg-muted" />
           }
 
           return (

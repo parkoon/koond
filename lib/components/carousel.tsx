@@ -1,22 +1,37 @@
 'use client'
 
-import { EmblaCarouselType } from 'embla-carousel'
+import { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel'
+import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
-import React from 'react'
-import { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import { cn } from '../utils/cn'
 
-type ImageCarouselProps = {
+const DEFAULT_AUTO_PLAY_DELAY = 3000
+
+export type CarouselProps = {
   children: React.ReactNode
   gap?: number
+  options?: EmblaOptionsType
   classNames?: {
     slide?: string
+    root?: string
   }
+  autoplay?: boolean
+  delay?: number
 }
 
-const ImageCarousel = ({ children, classNames, gap = 8 }: ImageCarouselProps) => {
-  const [carouselRef, api] = useEmblaCarousel()
+export const Carousel = ({
+  children,
+  classNames,
+  options,
+  autoplay,
+  delay = DEFAULT_AUTO_PLAY_DELAY,
+  gap = 0,
+}: CarouselProps) => {
+  const plugins = autoplay ? [Autoplay({ playOnInit: true, delay })] : []
+
+  const [carouselRef, api] = useEmblaCarousel({ loop: autoplay, ...options }, plugins)
 
   const [selectedIndex, setSelectedIndex] = useState(1)
 
@@ -40,7 +55,7 @@ const ImageCarousel = ({ children, classNames, gap = 8 }: ImageCarouselProps) =>
   }, [api, onSelect])
 
   return (
-    <section className="relative w-full">
+    <section className={cn('relative w-full', classNames?.root)}>
       <div className="overflow-hidden" ref={carouselRef}>
         <div className="flex" style={{ gap }}>
           {React.Children.map(children, (child, index) => (
@@ -58,5 +73,3 @@ const ImageCarousel = ({ children, classNames, gap = 8 }: ImageCarouselProps) =>
     </section>
   )
 }
-
-export default ImageCarousel

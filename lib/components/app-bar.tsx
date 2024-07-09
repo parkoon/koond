@@ -16,7 +16,7 @@ export const AppBar = ({ left, title, right, classNames }: AppBarProps) => {
   return (
     <header
       className={cn(
-        'sticky top-0 z-10 flex items-center justify-between whitespace-nowrap bg-white px-5 py-4',
+        'sticky top-0 z-10 flex w-full items-center justify-between whitespace-nowrap bg-white px-5 py-4',
         classNames?.root,
       )}
       style={{ height: APP_BAR_HEIGHT }}

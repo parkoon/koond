@@ -27,5 +27,5 @@ type ContentProps = {
 }
 
 export const Content = ({ children, className }: ContentProps) => (
-  <main className={cn('w-full flex-1 py-4', className)}>{children}</main>
+  <main className={cn('w-full flex-1', className)}>{children}</main>
 )
