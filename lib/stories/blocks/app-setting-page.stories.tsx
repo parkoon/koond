@@ -13,11 +13,11 @@ import {
 } from 'lucide-react'
 
 import { Avatar } from '../../components/avatar'
-import BottomNavigation from '../../components/bottom-navigation'
-import ListMenu from '../../components/list-menu'
-import { Screen, ScreenContent } from '../../components/screen'
-import SeparatedDescription from '../../components/separated-description'
-import Separator from '../../components/separator'
+import { BottomNavigation } from '../../components/bottom-navigation'
+import { Content, Screen } from '../../components/layout'
+import { ListMenu } from '../../components/list-menu'
+import { SeparatedDescription } from '../../components/separated-description'
+import { Separator } from '../../components/separator'
 
 const meta = {
   title: 'blocks/App Setting Page',
@@ -27,7 +27,7 @@ const meta = {
 export const Default = () => {
   return (
     <Screen>
-      <ScreenContent>
+      <Content>
         <div className="flex space-x-4 px-5">
           <Avatar src="https://picsum.photos/200/300" fallback="Lo" size={40} shape="square" />
           <div className="flex flex-col">
@@ -76,7 +76,7 @@ export const Default = () => {
             },
           ]}
         />
-      </ScreenContent>
+      </Content>
 
       <BottomNavigation
         items={[

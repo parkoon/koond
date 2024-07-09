@@ -1,11 +1,11 @@
 import { cn } from '../utils/cn'
 
-type SeparatedDescriptionProps = {
+export type SeparatedDescriptionProps = {
   items?: string[]
   className?: string
 }
 
-const SeparatedDescription = ({ items = [], className }: SeparatedDescriptionProps) => {
+export const SeparatedDescription = ({ items = [], className }: SeparatedDescriptionProps) => {
   return (
     <div className={cn('flex space-x-2 text-sm text-muted-foreground', className)}>
       {items.map((item, index) => {
@@ -20,5 +20,3 @@ const SeparatedDescription = ({ items = [], className }: SeparatedDescriptionPro
     </div>
   )
 }
-
-export default SeparatedDescription

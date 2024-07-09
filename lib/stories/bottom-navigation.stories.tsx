@@ -1,23 +1,24 @@
 import type { Meta } from '@storybook/react'
-import { DownloadCloud, SoupIcon, User } from 'lucide-react'
+import { Bell, Calendar, Home, LayoutGrid, Search } from 'lucide-react'
 
-import BottomNavigation from '../components/bottom-navigation'
+import { BottomNavigation } from '../components/bottom-navigation'
 
 const meta = {
   title: 'ui/BottomNavigation',
   component: BottomNavigation,
+  tags: ['autodocs'],
 } satisfies Meta<typeof BottomNavigation>
 
 export default meta
 
-export const _BottomNavigation = () => {
-  return (
-    <BottomNavigation
-      items={[
-        { icon: <User />, label: 'User' },
-        { icon: <SoupIcon />, label: 'Soup' },
-        { icon: <DownloadCloud />, label: 'Cloud' },
-      ]}
-    />
-  )
-}
+export const Default = () => (
+  <BottomNavigation
+    items={[
+      { icon: <Home />, label: 'Home' },
+      { icon: <Search />, label: 'Search' },
+      { icon: <Calendar />, label: 'Schedule' },
+      { icon: <Bell />, label: 'Notification' },
+      { icon: <LayoutGrid />, label: 'More' },
+    ]}
+  />
+)

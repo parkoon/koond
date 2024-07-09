@@ -21,11 +21,11 @@ export const Screen = ({ className, children }: ScreenProps) => {
   )
 }
 
-type ScreenContentProps = {
+type ContentProps = {
   children: React.ReactNode
   className?: string
 }
 
-export const ScreenContent = ({ children, className }: ScreenContentProps) => (
+export const Content = ({ children, className }: ContentProps) => (
   <main className={cn('flex-1 py-4', className)}>{children}</main>
 )

@@ -1,10 +1,11 @@
 import type { Meta } from '@storybook/react'
 
-import SeparatedDescription from '../components/separated-description'
+import { SeparatedDescription } from '../components/separated-description'
 
 const meta = {
   title: 'ui/Separated Description',
   component: SeparatedDescription,
+  tags: ['autodocs'],
 } satisfies Meta<typeof SeparatedDescription>
 
 export default meta

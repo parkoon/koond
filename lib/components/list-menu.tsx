@@ -15,7 +15,7 @@ type MenuItem =
       type: 'separator'
       color?: string
     }
-type ListMenuProps = {
+export type ListMenuProps = {
   hideLinkIcon?: boolean
   title?: string
   items: MenuItem[]
@@ -26,7 +26,7 @@ type ListMenuProps = {
   }
 }
 
-const ListMenu = ({ title, items = [], classNames, hideLinkIcon }: ListMenuProps) => {
+export const ListMenu = ({ title, items = [], classNames, hideLinkIcon }: ListMenuProps) => {
   return (
     <div className={classNames?.root}>
       {title && <h3 className={cn('mb-1 font-bold', classNames?.title)}>{title}</h3>}
@@ -69,5 +69,3 @@ const ListMenu = ({ title, items = [], classNames, hideLinkIcon }: ListMenuProps
     </div>
   )
 }
-
-export default ListMenu

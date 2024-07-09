@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { cn } from '../utils/cn'
-import { MAX_SCREEN_WIDTH } from './screen'
+import { MAX_SCREEN_WIDTH } from './layout'
 
 export const BOTTOM_TAB_NAVIGATION_HEIGHT = 56
 
@@ -9,7 +9,7 @@ type NavItem = {
   label: string
   icon: React.ReactNode
 }
-type BottomNavigationProps = {
+export type BottomNavigationProps = {
   classNames?: {
     root?: string
     item?: string
@@ -20,7 +20,7 @@ type BottomNavigationProps = {
   value?: number
   onChange?(value: number): void
 }
-const BottomNavigation = ({ classNames, value, onChange, items }: BottomNavigationProps) => {
+export const BottomNavigation = ({ classNames, value, onChange, items }: BottomNavigationProps) => {
   const [activeTab, setActiveTab] = useState(0)
 
   const _activeTab = value ?? activeTab
@@ -43,6 +43,7 @@ const BottomNavigation = ({ classNames, value, onChange, items }: BottomNavigati
           const isActive = index === _activeTab
           return (
             <button
+              key={item.label + index}
               className={cn(
                 'flex flex-1 flex-col items-center justify-center px-2 text-muted-foreground',
                 isActive && 'text-foreground',
@@ -59,5 +60,3 @@ const BottomNavigation = ({ classNames, value, onChange, items }: BottomNavigati
     </nav>
   )
 }
-
-export default BottomNavigation

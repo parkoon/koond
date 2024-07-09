@@ -2,7 +2,7 @@ import { Castle, Settings2 } from 'lucide-react'
 
 import { Checkbox } from '../components/checkbox'
 import { IconButton } from '../components/icon-button'
-import ListMenu from '../components/list-menu'
+import { ListMenu } from '../components/list-menu'
 import Paper from '../components/paper'
 import PromoBanner from '../components/promo-banner'
 import PromoBottomSheet from '../components/promo-bottom-sheet'

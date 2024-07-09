@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react'
+import React from 'react'
 
+import { Content, Screen } from '../lib/components/layout'
 import '../lib/index.css'
 import './preview.css'
 
@@ -22,17 +24,20 @@ const preview: Preview = {
       },
     },
   },
-  // decorators: [
-  //   (Story, { parameters }) => {
-  //     return (
-  //       <Screen>
-  //         <ScreenDrawerProvider>
-  //           <Story />
-  //         </ScreenDrawerProvider>
-  //       </Screen>
-  //     )
-  //   },
-  // ],
+  decorators: [
+    (Story, context) => {
+      if (context.title.includes('ui')) {
+        return (
+          <Screen>
+            <Content className="px-5">
+              <Story />
+            </Content>
+          </Screen>
+        )
+      }
+      return <Story />
+    },
+  ],
 }
 
 export default preview
