@@ -10,7 +10,6 @@ import { HorizontalSnapScrollArea } from '../../components/horizontal-snap-scrol
 import { IconButton } from '../../components/icon-button'
 import { Indicator } from '../../components/indicator'
 import { Content, Screen } from '../../components/layout'
-import Paper from '../../components/paper'
 import Separator from '../../components/separator'
 import { cn } from '../../utils/cn'
 
@@ -28,35 +27,6 @@ const banners = Array.from({ length: 3 }).map(
 const products = Array.from({ length: 12 }).map(
   (_, index) => `https://picsum.photos/seed/${index + 20}/800`,
 )
-
-// const Card = () => {
-//   return (
-//     <div>
-//       <AspectRatio>
-//         <div className="relative h-full">
-//           <img
-//             src="https://fastly.picsum.photos/id/558/600/300.jpg?hmac=fm0lTAUwSYC1ThfEp1LQGfIpd4yPQRX3Qb3gptH9FhA"
-//             className="h-full object-cover"
-//           />
-//           <IconButton
-//             icon={
-//               <Heart className="text-muted-foreground opacity-80" fill="var(--muted-foreground)" />
-//             }
-//             variant="ghost"
-//             className="absolute bottom-0 right-0"
-//           />
-//         </div>
-//       </AspectRatio>
-
-//       <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-//       <span className="text-sm text-muted-foreground line-through">3,000원</span>
-//       <div className="space-x-1 text-lg font-bold">
-//         <span className="text-orange-400">10%</span>
-//         <span>2,990원</span>
-//       </div>
-//     </div>
-//   )
-// }
 
 export const Default = () => {
   return (
