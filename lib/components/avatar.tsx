@@ -36,7 +36,7 @@ export const Avatar = ({
     <AvatarPrimitive.Root
       className={cn(
         'relative flex shrink-0 overflow-hidden',
-        shape === 'round' ? 'rounded-full' : 'rounded-lg',
+        shape === 'round' ? 'rounded-full' : 'rounded',
         classNames?.root,
       )}
       style={{ width: size, height: size }}

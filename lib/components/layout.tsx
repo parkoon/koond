@@ -13,7 +13,7 @@ type ScreenProps = {
 export const Screen = ({ className, children }: ScreenProps) => {
   return (
     <div
-      className={cn('mx-auto flex min-h-full w-full flex-1 flex-col', className)}
+      className={cn('mx-auto flex min-h-full w-full flex-1 flex-col items-start', className)}
       style={{ boxShadow: '-1px 0 0 0 #eee, 1px 0 0 0 #eee', maxWidth: MAX_SCREEN_WIDTH }}
     >
       {children}{' '}
@@ -27,5 +27,5 @@ type ContentProps = {
 }
 
 export const Content = ({ children, className }: ContentProps) => (
-  <main className={cn('flex-1 py-4', className)}>{children}</main>
+  <main className={cn('w-full flex-1 py-4', className)}>{children}</main>
 )

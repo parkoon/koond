@@ -20,7 +20,7 @@ import { SeparatedDescription } from '../../components/separated-description'
 import { Separator } from '../../components/separator'
 
 const meta = {
-  title: 'blocks/App Setting Page',
+  title: 'blocks/Settings page',
   tags: ['autodocs'],
 }
 
