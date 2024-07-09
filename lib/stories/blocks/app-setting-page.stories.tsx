@@ -1,6 +1,19 @@
-import { CakeSlice, Calculator, Camera, Clock8, Database, Drum } from 'lucide-react'
+import {
+  Bell,
+  CakeSlice,
+  Calculator,
+  Calendar,
+  Camera,
+  Clock8,
+  Database,
+  Drum,
+  Home,
+  LayoutGrid,
+  Search,
+} from 'lucide-react'
 
 import { Avatar } from '../../components/avatar'
+import BottomNavigation from '../../components/bottom-navigation'
 import ListMenu from '../../components/list-menu'
 import { Screen, ScreenContent } from '../../components/screen'
 import SeparatedDescription from '../../components/separated-description'
@@ -15,43 +28,43 @@ export const Default = () => {
   return (
     <Screen>
       <ScreenContent>
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 px-5">
           <Avatar src="https://picsum.photos/200/300" fallback="Lo" size={40} shape="square" />
           <div className="flex flex-col">
             <h2 className="text-xl font-bold">Lorem</h2>
-            <SeparatedDescription items={['Lorem ipsum', 'dolor sit amet consectetur']} />
+            <SeparatedDescription items={['Lorem ipsum', 'dolor sit']} />
           </div>
         </div>
 
         <Separator />
-
         <ListMenu
+          classNames={{ item: 'px-5', title: 'px-5' }}
           title="My menu"
           items={[
             {
               type: 'link',
               label: 'Cake Slice',
-              icon: <CakeSlice className="h-5 w-5" />,
+              icon: <CakeSlice />,
             },
             {
               type: 'link',
               label: 'Calculator',
-              icon: <Calculator className="h-5 w-5" />,
+              icon: <Calculator />,
             },
             {
               type: 'link',
               label: 'Camera',
-              icon: <Camera className="h-5 w-5" />,
+              icon: <Camera />,
             },
             {
               type: 'link',
               label: 'Clock',
-              icon: <Clock8 className="h-5 w-5" />,
+              icon: <Clock8 />,
             },
             {
               type: 'link',
               label: 'Database',
-              icon: <Database className="h-5 w-5" />,
+              icon: <Database />,
             },
             {
               type: 'separator',
@@ -59,15 +72,23 @@ export const Default = () => {
             {
               type: 'link',
               label: 'Drum',
-              icon: <Drum className="h-5 w-5" />,
+              icon: <Drum />,
             },
           ]}
         />
       </ScreenContent>
+
+      <BottomNavigation
+        items={[
+          { icon: <Home />, label: 'Home' },
+          { icon: <Search />, label: 'Search' },
+          { icon: <Calendar />, label: 'Schedule' },
+          { icon: <Bell />, label: 'Notification' },
+          { icon: <LayoutGrid />, label: 'More' },
+        ]}
+      />
     </Screen>
   )
 }
 
 export default meta
-
-// Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem hic ratione at, voluptatem nesciunt nam molestiae accusantium in fugiat magni aut temporibus. Exercitationem deleniti vel mollitia cumque libero dicta explicabo.

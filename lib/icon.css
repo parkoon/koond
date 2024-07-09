@@ -1,0 +1,6 @@
+/* @see https://lucide.dev/guide/advanced/global-styling */
+.lucide {
+  color: inherit;
+  width: 20px;
+  height: 20px;
+}

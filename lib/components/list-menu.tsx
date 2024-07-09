@@ -22,6 +22,7 @@ type ListMenuProps = {
   classNames?: {
     root?: string
     title?: string
+    item?: string
   }
 }
 
@@ -42,7 +43,7 @@ const ListMenu = ({ title, items = [], classNames, hideLinkIcon }: ListMenuProps
           }
 
           return (
-            <li key={index}>
+            <li key={index} className={classNames?.item}>
               <button
                 onClick={item.onClick}
                 className="flex w-full items-center justify-between py-3"
