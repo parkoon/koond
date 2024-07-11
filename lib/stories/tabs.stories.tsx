@@ -1,22 +1,33 @@
 import type { Meta } from '@storybook/react'
 
-import Tabs from '../components/tabs'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/tabs'
 
 const meta = {
   title: 'ui/Tabs',
   component: Tabs,
-  argTypes: {},
+  tags: ['autodocs'],
 } satisfies Meta<typeof Tabs>
 
 export default meta
 
-export const _Tabs = () => {
+const tabs = Array.from({ length: 3 })
+
+export const Default = () => {
   return (
-    <Tabs
-      items={[
-        { key: 'job', label: 'Job', children: <div>Job list</div> },
-        { key: 'business', label: 'Business', children: <div>Business list</div> },
-      ]}
-    />
+    <Tabs defaultValue="0">
+      <TabsList>
+        {tabs.map((_, index) => (
+          <TabsTrigger key={index} value={index.toString()}>
+            Tab {index}
+          </TabsTrigger>
+        ))}
+      </TabsList>
+
+      {tabs.map((_, index) => (
+        <TabsContent key={index} value={index.toString()}>
+          Content {index}
+        </TabsContent>
+      ))}
+    </Tabs>
   )
 }

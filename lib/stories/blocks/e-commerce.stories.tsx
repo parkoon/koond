@@ -1,7 +1,7 @@
-import { AlignJustify, Heart, Search, ShoppingCartIcon } from 'lucide-react'
-import React from 'react'
+import { CalendarHeart, Heart, Search, ShoppingCartIcon } from 'lucide-react'
 
-import { AppBar } from '../../components/app-bar'
+import { Alert, AlertDescription, AlertSlot, AlertTitle } from '../../components/alert'
+import { APP_BAR_HEIGHT, AppBar } from '../../components/app-bar'
 import AspectRatio from '../../components/aspect-ratio'
 import { Avatar } from '../../components/avatar'
 import { Carousel } from '../../components/carousel'
@@ -10,8 +10,14 @@ import { HorizontalSnapScrollArea } from '../../components/horizontal-snap-scrol
 import { IconButton } from '../../components/icon-button'
 import { Indicator } from '../../components/indicator'
 import { Content, Screen } from '../../components/layout'
-import Separator from '../../components/separator'
-import { cn } from '../../utils/cn'
+import {
+  ScrollableTabs,
+  ScrollableTabsList,
+  ScrollableTabsTrigger,
+} from '../../components/scrollable-tabs'
+import { Section, SectionBody, SectionHeader } from '../../components/section'
+import { Separator } from '../../components/separator'
+import { TextInput } from '../../components/text-input'
 
 const meta = {
   title: 'blocks/eCommerce page',
@@ -32,18 +38,35 @@ export const Default = () => {
   return (
     <Screen>
       <AppBar
-        left={<IconButton className="-ml-4" variant="ghost" icon={<AlignJustify />} />}
-        right={
-          <div className="-mr-4">
-            <IconButton variant="ghost" icon={<Search />} />
-            <IconButton variant="ghost" icon={<ShoppingCartIcon />} />
-          </div>
+        left={
+          <TextInput
+            suffix={<Search />}
+            placeholder="Lorem ipsum dolor sit"
+            className="rounded-full"
+            filled
+            readOnly
+          />
         }
+        right={<IconButton variant="ghost" className="-mr-4" icon={<ShoppingCartIcon />} />}
       />
-      <Content>
+
+      <ScrollableTabs
+        defaultValue="recommend"
+        className="sticky z-10"
+        style={{ top: APP_BAR_HEIGHT }}
+      >
+        <ScrollableTabsList>
+          <ScrollableTabsTrigger value="recommend">Recommend</ScrollableTabsTrigger>
+          <ScrollableTabsTrigger value="best">Best</ScrollableTabsTrigger>
+          <ScrollableTabsTrigger value="event">Event</ScrollableTabsTrigger>
+          <ScrollableTabsTrigger value="rank">Rank</ScrollableTabsTrigger>
+        </ScrollableTabsList>
+      </ScrollableTabs>
+
+      <Content className="pb-20">
         <Carousel classNames={{ root: 'mb-3' }} autoplay delay={2000}>
           {banners.map((src, index) => (
-            <img key={index} src={src} className="h-[120px] w-full object-cover" />
+            <img key={index} src={src} className="h-[240px] w-full object-cover" />
           ))}
         </Carousel>
         <HorizontalScrollArea className="pt-2">
@@ -58,14 +81,64 @@ export const Default = () => {
           ))}
         </HorizontalScrollArea>
 
-        <Separator className="h-2 bg-muted" />
+        <div className="mt-5 px-4">
+          <Alert clickable>
+            <AlertSlot>
+              <CalendarHeart />
+            </AlertSlot>
+            <AlertTitle>Lorem ipsum dolor sit</AlertTitle>
+            <AlertDescription>reiciendis alias temporibus officia quia</AlertDescription>
+          </Alert>
+        </div>
 
-        <Section
-          title="Lorem ipsum"
-          description="amet consectetur adipisicing elit. Iure ipsum"
-          extra={<a href="#">More</a>}
-        >
-          <HorizontalSnapScrollArea>
+        <Separator size={6} className="opacity-30" />
+
+        <Section>
+          <SectionHeader
+            title="Lorem ipsum"
+            description="amet consectetur adipisicing elit. Iure ipsum"
+            extra={<a href="#">More</a>}
+          />
+          <SectionBody>
+            <HorizontalSnapScrollArea>
+              {products.map((src, index) => (
+                <div key={index}>
+                  <AspectRatio>
+                    <div className="relative h-full overflow-hidden rounded">
+                      <img src={src} className="h-full w-full object-cover" />
+                      <IconButton
+                        icon={
+                          <Heart
+                            className="text-muted-foreground opacity-80"
+                            fill="var(--muted-foreground)"
+                          />
+                        }
+                        variant="ghost"
+                        className="absolute bottom-0 right-0"
+                      />
+                    </div>
+                  </AspectRatio>
+
+                  <p className="leading-tight">Lorem ipsum dolor sit </p>
+                  <span className="text-sm text-muted-foreground line-through">3,000원</span>
+                  <div className="space-x-1 text-lg font-bold">
+                    <span className="text-orange-400">10%</span>
+                    <span>2,990원</span>
+                  </div>
+                </div>
+              ))}
+            </HorizontalSnapScrollArea>
+          </SectionBody>
+        </Section>
+
+        <Separator size={6} className="opacity-30" />
+
+        <Section>
+          <SectionHeader
+            title="Lorem ipsum"
+            description="amet consectetur adipisicing elit. Iure ipsum"
+          />
+          <SectionBody className="flex flex-col gap-4 px-4">
             {products.map((src, index) => (
               <div key={index}>
                 <AspectRatio>
@@ -92,42 +165,12 @@ export const Default = () => {
                 </div>
               </div>
             ))}
-          </HorizontalSnapScrollArea>
+          </SectionBody>
         </Section>
+
+        {/* <div className="h-[64rem] bg-green-400" /> */}
       </Content>
     </Screen>
-  )
-}
-
-type SectionProps = {
-  children: React.ReactNode
-  title?: string | React.ReactNode
-  description?: string | React.ReactNode
-
-  extra?: React.ReactNode
-
-  classNames?: {
-    root?: string
-    header?: string
-    body?: string
-  }
-}
-const Section = ({ title, description, classNames, extra, children }: SectionProps) => {
-  return (
-    <section className={classNames?.header}>
-      <header className={cn('mb-4 px-4', classNames?.header)}>
-        <div className="flex justify-between">
-          {React.isValidElement(title) ? title : <h3 className="text-xl font-bold">{title}</h3>}
-          {extra}
-        </div>
-        {React.isValidElement(description) ? (
-          description
-        ) : (
-          <p className="text-muted-foreground">{description}</p>
-        )}
-      </header>
-      <div className={classNames?.body}>{children}</div>
-    </section>
   )
 }
 

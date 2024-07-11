@@ -1,79 +1,42 @@
 import type { Meta } from '@storybook/react'
 
-import RadioGroup from '../components/radio-group'
+import { RadioGroup, RadioGroupButtonItem, RadioGroupItem } from '../components/radio-group'
 
 const meta = {
   title: 'ui/RadioGroup',
   component: RadioGroup,
-  argTypes: {
-    radioType: {
-      options: ['default', 'button'],
-      control: { type: 'radio' },
-    },
-
-    defaultValue: { control: false },
-  },
-  parameters: {
-    controls: {
-      exclude: ['defaultValue', 'value', 'items', 'radioType', 'classNames'],
-    },
-  },
-  args: {},
+  tags: ['autodocs'],
 } satisfies Meta<typeof RadioGroup>
 
 export default meta
 
 export const Default = () => {
   return (
-    <RadioGroup
-      defaultValue="all"
-      items={[
-        { label: 'All', value: 'all' },
-        { label: 'Popular JOB', value: 'popular_job' },
-        { label: 'Urgent Hiring', value: 'urgent_hiring' },
-      ]}
-      radioType="default"
-    />
-  )
-}
-export const Button = () => {
-  return (
-    <RadioGroup
-      defaultValue="all"
-      items={[
-        { label: 'All', value: 'all' },
-        { label: 'Popular JOB', value: 'popular_job' },
-        { label: 'Urgent Hiring', value: 'urgent_hiring' },
-      ]}
-      radioType="button"
-    />
-  )
-}
-export const InlineButton = () => {
-  return (
-    <RadioGroup
-      defaultValue="all"
-      classNames={{ root: 'flex-row' }}
-      items={[
-        { label: 'All', value: 'all' },
-        { label: 'Popular JOB', value: 'popular_job' },
-        { label: 'Urgent Hiring', value: 'urgent_hiring' },
-      ]}
-      radioType="button"
-    />
+    <RadioGroup defaultValue="all">
+      <RadioGroupItem value="all">All</RadioGroupItem>
+      <RadioGroupItem value="popular">Popular JOB</RadioGroupItem>
+      <RadioGroupItem value="urgent">Urgent Hiring JOB</RadioGroupItem>
+    </RadioGroup>
   )
 }
 
-export const InlineFullButton = () => {
-  return (
-    <RadioGroup
-      defaultValue="male"
-      classNames={{ root: 'grid grid-cols-2', radio: 'w-full rounded-lg' }}
-      items={[
-        { label: 'Male', value: 'male' },
-        { label: 'Female', value: 'female' },
-      ]}
-      radioType="button"
-    />
-  )
-}
+export const ButtonTypeRadio = () => (
+  <RadioGroup inline defaultValue="all">
+    <RadioGroupButtonItem value="all">All</RadioGroupButtonItem>
+    <RadioGroupButtonItem value="popular">Popular JOB</RadioGroupButtonItem>
+    <RadioGroupButtonItem value="urgent">Urgent Hiring JOB</RadioGroupButtonItem>
+  </RadioGroup>
+)
+export const FullButtonTypeRadio = () => (
+  <RadioGroup defaultValue="all" className="grid grid-cols-2">
+    <RadioGroupButtonItem value="all" block>
+      All
+    </RadioGroupButtonItem>
+    <RadioGroupButtonItem value="popular" block>
+      Popular JOB
+    </RadioGroupButtonItem>
+    <RadioGroupButtonItem value="urgent" block>
+      Urgent Hiring JOB
+    </RadioGroupButtonItem>
+  </RadioGroup>
+)

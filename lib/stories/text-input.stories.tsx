@@ -1,6 +1,7 @@
 import type { Meta } from '@storybook/react'
+import { Search } from 'lucide-react'
 
-import TextInput from '../components/text-input'
+import { TextInput } from '../components/text-input'
 
 const meta = {
   title: 'ui/TextInput',
@@ -10,6 +11,12 @@ const meta = {
 
 export default meta
 
-export const _TextInput = () => {
-  return <TextInput />
+export const Default = () => {
+  return <TextInput placeholder="culpa asperiores aliquam quae" />
+}
+export const Filled = () => {
+  return <TextInput filled placeholder="culpa asperiores aliquam quae" />
+}
+export const WithPrefix = () => {
+  return <TextInput prefix={<Search />} placeholder="culpa asperiores aliquam quae" />
 }
