@@ -29,7 +29,7 @@ const PromoBanner = ({
     <section className={cn('relative', classNames?.root)}>
       {content}
       <button
-        className={cn('absolute right-1 top-1 text-placeholder', classNames?.close)}
+        className={cn('absolute right-1 top-1 text-muted-foreground', classNames?.close)}
         onClick={close}
       >
         <X className="h-4 w-4" />

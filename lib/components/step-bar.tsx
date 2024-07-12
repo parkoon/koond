@@ -8,19 +8,24 @@ type StepBarProps = {
   items: string[]
   currentStep: number
   startProgress?: number
-}
+} & React.ComponentProps<typeof Progress.Root>
 
 const StepBar = ({
   items,
   startProgress = DEFAULT_START_PROGRESS_PERCENT,
   currentStep = 0,
+  className,
+  ...props
 }: StepBarProps) => {
   const step = 100 / (items.length - 1)
   const value = step * Math.min(currentStep, items.length) || startProgress
 
   return (
     <>
-      <Progress.Root className="relative mb-1 h-2 w-full overflow-hidden rounded-full bg-primary/20">
+      <Progress.Root
+        className={cn('relative mb-1 h-2 w-full overflow-hidden rounded-full bg-muted', className)}
+        {...props}
+      >
         <Progress.Indicator
           className="h-full w-full flex-1 rounded-full bg-primary transition-all"
           style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
@@ -32,7 +37,7 @@ const StepBar = ({
           <span
             key={index}
             className={cn(
-              'text-placeholder',
+              'text-sm text-muted-foreground',
               currentStep === index && 'font-semibold text-primary',
             )}
           >

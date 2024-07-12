@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react'
 import React from 'react'
 
-import { Content, Screen } from '../lib/components/layout'
+import { Screen } from '../lib/components/screen'
 import '../lib/index.css'
 import './preview.css'
 
@@ -28,10 +28,8 @@ const preview: Preview = {
     (Story, context) => {
       if (context.title.includes('ui')) {
         return (
-          <Screen>
-            <Content>
-              <Story />
-            </Content>
+          <Screen style={{ padding: 16 }}>
+            <Story />
           </Screen>
         )
       }

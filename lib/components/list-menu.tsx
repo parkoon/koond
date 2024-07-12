@@ -49,7 +49,7 @@ export const ListMenu = ({ title, items = [], classNames, hideLinkIcon }: ListMe
 
                 <div className="flex items-center gap-2">
                   {typeof item.extra === 'string' ? (
-                    <span className="text-sm text-placeholder">{item.extra}</span>
+                    <span className="text-sm text-muted-foreground">{item.extra}</span>
                   ) : (
                     item.extra
                   )}

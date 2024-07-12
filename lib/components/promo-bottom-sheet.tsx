@@ -50,7 +50,7 @@ const PromoBottomSheet = ({
         <div className="flex h-[52px] items-center justify-between">
           <Button
             variant="ghost"
-            className="text-placeholder"
+            className="text-muted-foreground"
             onClick={handleHideClick}
             {...restHideButtonProps}
           >

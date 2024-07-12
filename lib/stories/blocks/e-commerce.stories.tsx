@@ -1,7 +1,7 @@
 import { CalendarHeart, Heart, Search, ShoppingCartIcon } from 'lucide-react'
 
 import { Alert, AlertDescription, AlertSlot, AlertTitle } from '../../components/alert'
-import { APP_BAR_HEIGHT, AppBar } from '../../components/app-bar'
+import { APP_BAR_HEIGHT, AppBar, AppBarAction, AppBarExtra } from '../../components/app-bar'
 import AspectRatio from '../../components/aspect-ratio'
 import { Avatar } from '../../components/avatar'
 import { Carousel } from '../../components/carousel'
@@ -36,18 +36,20 @@ const products = Array.from({ length: 12 }).map(
 export const CommerceApp = () => {
   return (
     <Screen className="pb-5">
-      <AppBar
-        left={
+      <AppBar>
+        <AppBarAction className="mr-4 flex-1">
           <TextInput
             suffix={<Search />}
             placeholder="Lorem ipsum dolor sit"
-            className="rounded-full"
+            className="w-full rounded-full"
             filled
             readOnly
           />
-        }
-        right={<IconButton variant="ghost" className="-mr-4" icon={<ShoppingCartIcon />} />}
-      />
+        </AppBarAction>
+        <AppBarExtra>
+          <ShoppingCartIcon />
+        </AppBarExtra>
+      </AppBar>
 
       <ScrollableTabs
         defaultValue="recommend"

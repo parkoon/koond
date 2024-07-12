@@ -15,7 +15,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '../../components/accordion'
-import { AppBar } from '../../components/app-bar'
+import { AppBar, AppBarAction, AppBarExtra } from '../../components/app-bar'
 import { Avatar } from '../../components/avatar'
 import { Badge } from '../../components/badge'
 import { BottomNavigation } from '../../components/bottom-navigation'
@@ -37,16 +37,17 @@ const friends = Array.from({ length: 100 }).map(
 export const ChatApp = () => {
   return (
     <Screen>
-      <AppBar
-        left={<h2 className="text-lg font-bold">Friends</h2>}
-        right={
-          <div className="flex gap-2">
-            <Search />
-            <UserPlus2Icon />
-            <Settings />
-          </div>
-        }
-      />
+      <AppBar>
+        <AppBarAction>
+          <h2 className="text-lg font-bold">Friends</h2>
+        </AppBarAction>
+
+        <AppBarExtra>
+          <Search />
+          <UserPlus2Icon />
+          <Settings />
+        </AppBarExtra>
+      </AppBar>
 
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center space-x-4">

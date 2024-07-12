@@ -9,7 +9,15 @@ export type PaperProps = React.ComponentProps<'div'> & {
 
 const Paper = ({ children, bordered = true, shadow = false, className, ...props }: PaperProps) => {
   return (
-    <div className={cn('rounded', bordered && 'border', shadow && 'shadow', className)} {...props}>
+    <div
+      className={cn(
+        'rounded-lg bg-background p-4',
+        !shadow && bordered && 'border',
+        shadow && 'shadow',
+        className,
+      )}
+      {...props}
+    >
       {children}
     </div>
   )
