@@ -15,19 +15,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '../../components/accordion'
-import { Alert, AlertDescription, AlertTitle } from '../../components/alert'
 import { AppBar } from '../../components/app-bar'
 import { Avatar } from '../../components/avatar'
 import { Badge } from '../../components/badge'
 import { BottomNavigation } from '../../components/bottom-navigation'
 import { HorizontalScrollArea } from '../../components/horizontal-scroll-area'
 import { Indicator } from '../../components/indicator'
-import { Screen } from '../../components/layout'
-import { Separator } from '../../components/separator'
+import { Screen } from '../../components/screen'
 
 const meta = {
   title: 'blocks/Chat App',
-  tags: ['autodocs'],
 }
 
 const profiles = Array.from({ length: 5 }).map(
@@ -37,7 +34,7 @@ const friends = Array.from({ length: 100 }).map(
   (_, index) => `https://picsum.photos/seed/${index + 1}/200`,
 )
 
-export const Default = () => {
+export const ChatApp = () => {
   return (
     <Screen>
       <AppBar
@@ -61,8 +58,6 @@ export const Default = () => {
           Multi profile <Plus className="h-3 w-3" />
         </Badge>
       </div>
-
-      {/* <Separator /> */}
 
       <div className="mt-5 px-4">
         <Accordion type="single" collapsible>
@@ -95,50 +90,6 @@ export const Default = () => {
           </div>
         ))}
       </div>
-
-      {/* <Separator /> */}
-
-      {/* <Separator />
-      <ListMenu
-        classNames={{ item: 'px-5', title: 'px-5' }}
-        title="My menu"
-        items={[
-          {
-            type: 'link',
-            label: 'Cake Slice',
-            icon: <CakeSlice />,
-          },
-          {
-            type: 'link',
-            label: 'Calculator',
-            icon: <Calculator />,
-          },
-          {
-            type: 'link',
-            label: 'Camera',
-            icon: <Camera />,
-          },
-          {
-            type: 'link',
-            label: 'Clock',
-            icon: <Clock8 />,
-          },
-          {
-            type: 'link',
-            label: 'Database',
-            icon: <Database />,
-          },
-          {
-            type: 'separator',
-          },
-          {
-            type: 'link',
-            label: 'Drum',
-            icon: <Drum />,
-          },
-        ]}
-      /> */}
-
       <BottomNavigation
         items={[
           { icon: <Home />, label: 'Home' },

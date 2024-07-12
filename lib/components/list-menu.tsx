@@ -33,7 +33,7 @@ export const ListMenu = ({ title, items = [], classNames, hideLinkIcon }: ListMe
       <ul>
         {items.map((item, index) => {
           if (item.type === 'separator') {
-            return <Separator className="h-2 bg-muted" />
+            return <Separator className="bg-muted" size={4} />
           }
 
           return (

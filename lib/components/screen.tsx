@@ -20,12 +20,3 @@ export const Screen = ({ className, children }: ScreenProps) => {
     </div>
   )
 }
-
-type ContentProps = {
-  children: React.ReactNode
-  className?: string
-}
-
-export const Content = ({ children, className }: ContentProps) => (
-  <main className={cn('w-full flex-1', className)}>{children}</main>
-)

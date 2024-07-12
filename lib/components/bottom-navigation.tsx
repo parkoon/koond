@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { cn } from '../utils/cn'
-import { MAX_SCREEN_WIDTH } from './layout'
+import { MAX_SCREEN_WIDTH } from './screen'
 
 export const BOTTOM_TAB_NAVIGATION_HEIGHT = 56
 
