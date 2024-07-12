@@ -6,8 +6,9 @@ export type IndicatorProps = {
   label?: string
   color?: string
   disabled?: boolean
+  className?: string
 }
-export const Indicator = ({ children, dot, label, color, disabled }: IndicatorProps) => {
+export const Indicator = ({ children, dot, label, color, disabled, className }: IndicatorProps) => {
   return (
     <div className="relative inline-block w-fit">
       {children}
@@ -18,6 +19,7 @@ export const Indicator = ({ children, dot, label, color, disabled }: IndicatorPr
             dot && 'box-content h-1.5 w-1.5',
             label && 'min-h-5 min-w-5 px-1',
             disabled && 'invisible',
+            className,
           )}
           style={{ backgroundColor: color }}
         >

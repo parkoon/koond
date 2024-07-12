@@ -16,7 +16,7 @@ export const Screen = ({ className, children }: ScreenProps) => {
       className={cn('mx-auto flex min-h-full w-full flex-1 flex-col items-start', className)}
       style={{ boxShadow: '-1px 0 0 0 #eee, 1px 0 0 0 #eee', maxWidth: MAX_SCREEN_WIDTH }}
     >
-      {children}
+      <main className="w-full flex-1">{children}</main>
     </div>
   )
 }

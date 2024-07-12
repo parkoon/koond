@@ -2,7 +2,7 @@ import { ChevronRight } from 'lucide-react'
 import React from 'react'
 
 import { cn } from '../utils/cn'
-import Separator from './separator'
+import { Separator } from './separator'
 
 type MenuItem =
   | {

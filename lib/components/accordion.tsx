@@ -6,12 +6,19 @@ import * as React from 'react'
 
 import { cn } from '../utils/cn'
 
-export type AccordionProps = React.ComponentProps<typeof AccordionPrimitive.Root>
-export const Accordion = ({ ...props }: AccordionProps) => <AccordionPrimitive.Root {...props} />
+export type AccordionProps = React.ComponentProps<typeof AccordionPrimitive.Root> & {
+  bordered?: boolean
+}
+export const Accordion = ({ className, bordered = true, ...props }: AccordionProps) => (
+  <AccordionPrimitive.Root
+    className={cn('w-full', !bordered && '[&>.accordion-item]:border-none', className)}
+    {...props}
+  />
+)
 
 export type AccordionItemProps = React.ComponentProps<typeof AccordionPrimitive.Item>
 export const AccordionItem = ({ className, ...props }: AccordionItemProps) => (
-  <AccordionPrimitive.Item className={cn('border-b', className)} {...props} />
+  <AccordionPrimitive.Item className={cn('accordion-item border-b', className)} {...props} />
 )
 
 export type AccordionTriggerProps = React.ComponentProps<typeof AccordionPrimitive.Trigger>
@@ -19,7 +26,7 @@ export const AccordionTrigger = ({ children, className, ...props }: AccordionTri
   <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger
       className={cn(
-        'flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all [&[data-state=open]>svg]:rotate-180',
+        'flex flex-1 items-center justify-between py-4 text-sm transition-all [&[data-state=open]>svg]:rotate-180',
         className,
       )}
       {...props}

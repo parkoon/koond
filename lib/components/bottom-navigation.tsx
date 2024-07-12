@@ -31,32 +31,35 @@ export const BottomNavigation = ({ classNames, value, onChange, items }: BottomN
   }
 
   return (
-    <nav
-      style={{ height: BOTTOM_TAB_NAVIGATION_HEIGHT, maxWidth: MAX_SCREEN_WIDTH }}
-      className={cn(
-        'fixed bottom-0 left-0 right-0 mx-auto max-w-lg border-t bg-white',
-        classNames?.root,
-      )}
-    >
-      <div className="flex h-full items-center">
-        {items.map((item, index) => {
-          const isActive = index === _activeTab
-          return (
-            <button
-              key={item.label + index}
-              className={cn(
-                'flex flex-1 flex-col items-center justify-center px-2 text-muted-foreground',
-                isActive && 'text-foreground',
-                classNames?.item,
-              )}
-              onClick={() => handleClick(index)}
-            >
-              {item.icon}
-              <span className={cn('text-sm', classNames?.label)}>{item.label}</span>
-            </button>
-          )
-        })}
-      </div>
-    </nav>
+    <>
+      <div style={{ height: BOTTOM_TAB_NAVIGATION_HEIGHT }} />
+      <nav
+        style={{ height: BOTTOM_TAB_NAVIGATION_HEIGHT, maxWidth: MAX_SCREEN_WIDTH }}
+        className={cn(
+          'fixed bottom-0 left-0 right-0 mx-auto max-w-lg border-t bg-white',
+          classNames?.root,
+        )}
+      >
+        <div className="flex h-full items-center">
+          {items.map((item, index) => {
+            const isActive = index === _activeTab
+            return (
+              <button
+                key={item.label + index}
+                className={cn(
+                  'flex flex-1 flex-col items-center justify-center px-2 text-muted-foreground',
+                  isActive && 'text-foreground',
+                  classNames?.item,
+                )}
+                onClick={() => handleClick(index)}
+              >
+                {item.icon}
+                <span className={cn('text-sm', classNames?.label)}>{item.label}</span>
+              </button>
+            )
+          })}
+        </div>
+      </nav>
+    </>
   )
 }
