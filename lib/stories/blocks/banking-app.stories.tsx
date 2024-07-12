@@ -42,8 +42,6 @@ export const BankingApp = () => {
     threshold: 0.6,
   })
 
-  console.log(inView)
-
   return (
     <Screen className="bg-slate-50 pb-5">
       <AppBar className={cn('bg-transparent transition', !inView && 'bg-white')}>
