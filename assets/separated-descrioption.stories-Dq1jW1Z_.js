@@ -1,0 +1,3 @@
+import{j as a}from"./jsx-runtime-DWbWqHZ-.js";import{S as s}from"./separated-description-DwITAaT3.js";import"./index-l2PZgWEW.js";import"./cn-DlbhWEP8.js";import"./extends-CF3RwP-h.js";const d={title:"ui/Separated Description",component:s,tags:["autodocs"]},e=()=>a.jsx(s,{items:["Lorem","Ipsum"]});e.__docgenInfo={description:"",methods:[],displayName:"Default"};var t,r,o;e.parameters={...e.parameters,docs:{...(t=e.parameters)==null?void 0:t.docs,source:{originalSource:`() => {
+  return <SeparatedDescription items={['Lorem', 'Ipsum']} />;
+}`,...(o=(r=e.parameters)==null?void 0:r.docs)==null?void 0:o.source}}};const u=["Default"];export{e as Default,u as __namedExportsOrder,d as default};
